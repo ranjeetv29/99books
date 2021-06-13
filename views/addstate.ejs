@@ -1,0 +1,50 @@
+<% include adminhead %>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Start Add categories  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Add Indian State</h2>
+                    <form method="POST" action="/admin/addstate">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!--state name-->                     <input type="text" style="text-transform: capitalize;" placeholder="Enter Indian State Only" class="form-control" name="statenm" required>
+                                </div>
+                            </div>
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" type="submit">Add State</button>
+                                    <div class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-left create-account">
+                        <strong><P>Want to add City? <a href="/admin/addcity" style="color: #d33b33;">Add City here</a></P></strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../images/side-images/state.jpg" alt="add categories image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Add categories -->
+
+
+<% include adminfooter %>

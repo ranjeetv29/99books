@@ -1,0 +1,88 @@
+<% include adminhead %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<div class="admin-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Admin panel</h1>
+                <h1>View and Manage Users</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about-box-main">
+    <div class="container">
+        <center>
+            <h1 style="font-size: 30px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">Users List</h1>
+            <div class="table-responsive">
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Date of Birth</th>
+                            <th scope="col">Registretion Information</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let row of userDetails) { %>
+                        <tr>
+                            <!-- ID -->
+                            <td style="text-align: center;"><%= row._id %></td>
+                            <!-- STATUS -->
+                            <% if(row.status==1) {%>
+                                <td style="text-align: center;">
+                                    <i class="fas fa-user-check" style="color: #018508; font-size: 18px;"></i>
+                                </td>
+                            <% } else{ %>
+                                <td style="text-align: center;">
+                                    <i class="fas fa-user-times" style="color: #d33; font-size: 18px;"></i>
+                                </td>
+                            <% } %>    
+                            <!-- NAME -->
+                            <td style="text-align: center;"><%= row.name %></td>
+                            <!-- EMAIL -->
+                            <td style="text-align: center;"><%= row.email %></td>
+                            <!-- MOBILE NUMBER -->
+                            <td style="text-align: center;"><%= row.mobile %></td>
+                            <!-- DATE OF BIRTH -->
+                            <td style="text-align: center;"><%= row.dob %></td>
+                            <!-- REGISTRATION INFORMATION -->
+                            <td style="text-align: center;"><%= row.info %></td>
+                            <!-- ACTION (block/unblock) -->
+                            <% if(row.status==1) {%>
+                                <td style="text-align: center;">
+                                    <a href="/admin/manageuserstatus?regid=<%= row._id %>&s=block" title="Block User" class="fas fa-user-alt-slash" style="color: #d33; font-size: 18px;"></a>
+                                </td>
+                            <% } else{ %>
+                                <td style="text-align: center;">
+                                    <a href="/admin/manageuserstatus?regid=<%= row._id %>&s=verify" title="Verify User" class="fas fa-user-alt" style="color: #018508; font-size: 18px;"></a>
+                                </td>
+                            <% } %>
+                            <!-- DELETE -->
+                            <td style="text-align: center;">
+                                <a href="/admin/manageuserstatus?regid=<%= row._id %>&s=delete" title="Delete User" class="fas fa-trash" style="color: #d33; font-size: 18px;"></a>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('#myTable').dataTable();
+    });
+</script>
+<% include adminfooter %>

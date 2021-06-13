@@ -1,0 +1,101 @@
+<% include userhead s%>
+
+<!-- Start change password  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Change Password Here</h2>
+                    <form method="POST" action="/users/my-account/cpuser">
+                        <div class="row">
+                            
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="fas fa-lock-open form-icon"></i>
+                                    <input type="hidden" class="form-control" name="username" value="<%= username %>">
+<!--old Password-->                 <input type="password" class="form-control" id="oldpasswd" name="oldpassword" placeholder="Enter Your Old Password" style="float: left;" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" required>
+                                    <i class="far fa-eye showPwd" onclick="showOldPwd('oldpasswd',this)"></i>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    
+                                    <i class="fas fa-unlock form-icon"></i>
+<!--new Password-->                 <input type="password" class="form-control" id="newpasswd" name="newpassword" placeholder="Enter New Password" style="float: left;" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" required>
+                                    <i class="far fa-eye showPwd" onclick="showNewPwd('newpasswd',this)"></i>
+                                    <label for="password" style="color: #d33b33; float: left;">!!!You must required at least one <strong>Alphabet</strong>, one <strong>Number</strong> and have at least <strong>8 Characters</strong>!!!</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="fas fa-lock form-icon"></i>
+<!--confirm new Password-->         <input type="password" class="form-control" id="cnfnewpasswd" name="cnfnewpassword" placeholder="Confirm New Password" style="float: left;" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" required>
+                                    <i class="far fa-eye showPwd" onclick="showCnfNewPwd('cnfnewpasswd',this)"></i>
+                                </div>
+                            </div>
+
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" id="login" type="submit">Change Password</button>
+                                    <div id="login" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../../images/side-images/user-male-change-password-image.jpg" alt="user change password image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End change password -->
+
+
+<script>
+    function showOldPwd(id, el) {
+      let x = document.getElementById(id);
+      if (x.type === "password") {
+        x.type = "text";
+        el.className = "far fa-eye-slash showPwd"
+      } else {
+        x.type = "password";
+        el.className = "far fa-eye showPwd"
+      }
+    }
+    function showNewPwd(id, el) {
+      let x = document.getElementById(id);
+      if (x.type === "password") {
+        x.type = "text";
+        el.className = "far fa-eye-slash showPwd"
+      } else {
+        x.type = "password";
+        el.className = "far fa-eye showPwd"
+      }
+    }
+    function showCnfNewPwd(id, el) {
+      let x = document.getElementById(id);
+      if (x.type === "password") {
+        x.type = "text";
+        el.className = "far fa-eye-slash showPwd"
+      } else {
+        x.type = "password";
+        el.className = "far fa-eye showPwd"
+      }
+    }
+</script>
+
+<% include instagram-feed %>
+<% include userfooter %>

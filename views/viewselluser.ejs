@@ -1,0 +1,54 @@
+<% include userhead %>
+
+<div class="about-box-main">
+    <div class="container">
+        <center>
+            <h1 style="font-size: 30px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">Category List</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center;">ID</th>
+                            <th scope="col" style="text-align: center;">Status</th>
+                            <th scope="col">Book Name</th>
+                            <th scope="col" style="text-align: center;">Book Price</th>
+                            <th scope="col">Book Image</th>
+                            <th scope="col" style="text-align: center;">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let row of usersellbook) { %>
+                        <tr>
+                            <!-- ID -->
+                            <td style="text-align: center;"><%= row._id %></td>  
+                            <!-- STATUS -->
+                            <% if(row.status==0) {%>
+                                <td style="text-align: center;">
+                                    <i class="fas fa-times" style="color: #d33; font-size: 18px;"></i>
+                                </td>
+                            <% } else{ %>
+                                <td style="text-align: center;">
+                                    <i class="fas fa-check" style="color: #018508; font-size: 18px;"></i>
+                                </td>
+                            <% } %> 
+                            <!-- book NAME -->
+                            <td><%= row.userbtitle %></td>
+                            <!-- book price -->
+                            <td style="text-align: center;"><%= row.userbprice %></td>
+                            <!-- image -->
+                            <td><%= row.bookimgnm %></td>
+                            <!-- DELETE -->
+                            <td style="text-align: center;">
+                                <a href="/users/manageuserbooksstatus?usersellid=<%= row._id %>&s=delete" title="Delete Book" class="fas fa-trash" style="color: #d33; font-size: 18px;"></a>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+</div>
+
+<% include instagram-feed %>
+<% include userfooter %>

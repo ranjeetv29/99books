@@ -1,0 +1,102 @@
+For this you are require to install some of modules and progrme to run on local server
+//----------------------------------------------------------------------------------//
+1. First install NodeJS with given url:
+
+   -->	https://nodejs.org/en/
+
+   -->  Download nodeJS on your system environment and install it
+
+   -->  We are working on Versions : 14.16.0 LTS (Stable)
+
+2. Install expressJS module:
+
+   -->  open command-prompt and write command given below:
+
+   -->  Command: npm install -g express
+
+3. Install nodemon module:
+
+   -->  in command-prompt write command given below:
+
+   -->  Command: npm install -g nodemon
+
+4. Install ejs module:
+
+   -->  In command-prompt open the project directory where you placed *99books* folder.
+ 
+   -->  For example:
+                    I placed my *99books* folder in drive E:\project
+
+   -->  so open your directory where you placed the *99books* folder and follows the command steps:
+
+   -->  STEP 1 -->  Command: cd 99books
+
+   -->  STEP 2 -->  Command: npm install ejs
+
+5. Install MongoDB database on you system:
+
+   -->  For install mongoDB open the following URL:
+
+           URL:- https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
+
+   -->  Now follow the steps given in the URL
+
+   -->  STEP 1 -->  Download the MongoDB installer by the following URL:
+
+                    URL:- https://www.mongodb.com/try/download/community?tck=docs_server
+
+   -->  STEP 2 -->  Select the version of MongoDB installer (4.2.14 recommanded)
+
+   -->  STEP 3 -->  Choose your system plateform (Developers are working on windows plateform)
+
+   -->  STEP 4 -->  Select downloadable package (for windows better to choose msi)
+
+   -->  STEP 5 -->  Download and install it.
+
+   -->  STEP 6 -->  After complete installation follow the command for start mongod server and mongo client:
+
+               -->  To start server: mongod
+
+                        "Path_of_mongodb_installation_files_where_you_install_mongodb\mongod.exe" --dbpath="path_of_mongodata_folder"
+
+               -->  To start client: mongo
+
+                        "Path_of_mongodb_installation_files_where_you_install_mongodb\mongo.exe"
+
+               (For example:
+                  To start server: mongod
+                    "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="E:\project\99booksdatabase"
+                  To start client: mongo
+                    "C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe")
+
+   -->  STEP 7 -->  Now in seprate command-prompt type command for same path
+
+                    Command: npm install mongoose
+
+   -->  STEP 8 -->  Now in seprate command-prompt type command for same path
+
+                    Command: npm install express-fileupload
+
+   -->  STEP 9 -->  Now in seprate command-prompt type command for same path
+
+                    Command: npm install express-session
+
+   NOTE: Open three seprete command-prompt for every mongod, mongo and nodemon command.
+
+6. For Run the 99books on browser run command in command-prompt:
+
+   -->  open the 99books directory in command-prompt.
+
+   -->  command: nodemon ./bin/www
+
+   -->  Now open browser (chrome browser recommended) and in url section type localhost:3000
+
+Now 99books will show in browser
+
+//--------------------------------------------------------------------------------------------//
+
+NOTE: Do not close command prompt until you work on 99boooks.
+      If your work done...
+      In command-prompt, type: ctrl + C to close the server then close command-prompt  
+
+//--------------------------------------------------------------------------------------------//

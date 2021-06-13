@@ -1,0 +1,50 @@
+<% include userhead %>
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Book Detail</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start Shop Detail  -->
+<div class="shop-detail-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-6">
+                <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active"> <img class="d-block w-100" src="../../uploads/productimages/<%= bookimgnm %>" alt="order img"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6">
+                <div class="single-product-details">
+                    <h2><%= title %></h2>
+                    <h5>&#8377; <%= price %></h5>
+                    <h4>Short Description:</h4>
+                    <p><%= discription %></p>
+                    <div class="price-box-bar">
+                        <div class="cart-and-bay-btn">
+                            <form method="GET" action="/users/makepayment">
+                                <input type="hidden" name="bid" value="<%= bid %>">
+                                <input type="hidden" name="price" value="<%= price %>">
+                                <input type="hidden" name="title" value="<%= title %>">
+                                <button class="btn hvr-hover" type="submit" style="color: white; font-weight: 900;">Buy Now</button>
+                            </form>
+                            <!-- <form method="GET" action="/users/cart">
+                                <button class="btn hvr-hover" type="submit"  style="color: white; font-weight: 900;">Add to cart</button>
+                            </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<% include instagram-feed %>
+<% include userfooter %>

@@ -1,0 +1,60 @@
+<% include adminhead %>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Start Add categories  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Add City</h2>
+                    <form method="POST" action="/admin/addcity">
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                                <div class="form-group">
+                                    
+<!--select state name-->            <select name="statenm" class="form-control">
+                                        <option>Select State</option>
+                                        <% for(let row of stlist) { %>
+                                            <option value="<%= row.statenm %>" style="text-transform: capitalize;"><%= row.statenm %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!--city name-->                    <input type="text" style="text-transform: capitalize;" placeholder="Enter City Name" class="form-control" name="citynm" required>
+                                </div>
+                            </div>
+                            
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" id="add-category" type="submit">Add City</button>
+                                    <div id="login" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-left create-account">
+                        <strong><P>Not Found State? <a href="/admin/addstate" style="color: #d33b33;">Add State here</a></P></strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../images/side-images/city.jpg" alt="city">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Add categories -->
+
+
+<% include adminfooter %>

@@ -1,0 +1,97 @@
+<% include adminhead %>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    function getresponse(catid) {
+        var xhttp = new XMLHttpRequest()
+        xhttp.open("GET","/admin/fetchSubcategoryAJAX?catid="+catid,true)
+        xhttp.send()
+        
+        xhttp.onreadystatechange=function() {
+            if(xhttp.readyState==4 && xhttp.status==200) {
+                document.getElementById("response").innerHTML = xhttp.responseText
+            }
+        }
+    }
+
+</script>
+
+
+<!-- Start Add categories  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Add Product</h2>
+                    <form method="POST" action="/admin/addproduct" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!--product name-->                 <input type="text" style="text-transform: capitalize;" placeholder="Enter Book Title" class="form-control" name="btitle" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">    
+                                <div class="form-group">
+<!--select cat name-->              <select onchange="getresponse(this.value)" name="catid" class="form-control" required>
+                                        <option>Select Category</option>
+                                        <% for(row of catprolist) { %>
+                                            <option value="<%= row._id %>"><%= row.catnm %></option>
+                                        <% } %>     
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">    
+                                <div class="form-group">
+<!--select sub cat name-->          <select id="response" name="subcatid" class="form-control" required>
+                                        <option>Select Sub Category</option> 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="bdiscription" class="small text-muted" style="margin: 0; padding: 0;">Plaese enter book discription with book Language and book author at last of the Description</label>
+<!-- product description -->        <textarea rows="3" style="text-transform: capitalize;" cols="auto" class="form-control" name="bdiscription" placeholder="Enter product description" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+<!--price-->                        <input type="number" name="bprice" class="form-control" placeholder="Enter product price" required>    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+<!--image-->                         <input class="form-control" type="file" id="formFile" name="bookimg" accept="image/*" required>
+                                </div>
+                            </div>
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" id="add-category" type="submit">Add Product</button>
+                                    <div id="login" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-left create-account">
+                        <strong><P>Dont Find Any Category? <a href="/admin/addcategories" style="color: #d33b33;">Add Category here</a></P></strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../images/side-images/admin-change-password-image.jpg" alt="add sub categories image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Add categories -->
+
+
+<% include adminfooter %>

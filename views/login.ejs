@@ -1,0 +1,72 @@
+<% include head %>
+<% include top %>
+<% include main-top %>
+<!-- Start login  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Login Here</h2>
+                    <form method="POST" action="/login">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-envelope form-icon"></i>
+<!--Email-->                        <input type="email" placeholder="Your Email" class="form-control" name="email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="fa fa-unlock-alt form-icon"></i>
+<!--Password-->                     <input type="password" class="form-control" id="passwd" name="password" placeholder="Enter Your Password" style="float: left;" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" required>
+                                    <i class="far fa-eye showPwd" onclick="showPwd('passwd',this)"></i>
+                                </div>
+                            </div>
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" id="login" type="submit">Login</button>
+                                    <div id="login" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-left create-account">
+                        <strong><P>New to 99BOOKS? <a href="/register" style="color: #d33b33;">Register</a></P></strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="images/side-images/login-image.jpg" alt="login image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End login -->
+
+
+<script>
+    function showPwd(id, el) {
+      let x = document.getElementById(id);
+      if (x.type === "password") {
+        x.type = "text";
+        el.className = "far fa-eye-slash showPwd"
+      } else {
+        x.type = "password";
+        el.className = "far fa-eye showPwd"
+      }
+    }
+</script>
+
+
+<% include instagram-feed %>
+<% include footer %>
+<% include copyright %>
+        

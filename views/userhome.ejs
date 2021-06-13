@@ -1,0 +1,125 @@
+<% include userhead %>
+<% include slider %>
+
+<!-- Start Categories  -->
+<div class="categories-shop">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-all text-center">
+                    <h1>Top Categories</h1>
+                    <p>When it comes to selecting a great book, we don't discriminate here at 99 BOOKS.</p>
+                </div>
+            </div>
+        </div>
+        <center>
+            <div class="row">
+                <% var count=1 %>
+                <% for(let row of catlist) { %>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                        <a href="/users/subcategorylist?catid=<%= row._id %>">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 shop-cat-box">
+                                <img class="img-fluid" src="../../uploads/categoryimages/<%= row.catimgnm %>" style="margin-bottom: 35px; margin-top: 0px;"/>    
+                                <a class="btn hvr-hover" href="#"><%= row.catnm %></a>        
+                            </div>
+                        </a>
+                    </div>
+                    <% if(count==6){ break; } %>
+                <% count++ } %>
+            </div>
+        </center>
+    </div>  
+</div>
+<!-- End Categories -->
+  
+<!-- Start Products  -->
+<div class="products-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-all text-center">
+                    <h1>Featured Books</h1>
+                    <p>Here you'll find all of the new releases and favorite #HISTORY #FICTION and #LITERATURE gems. </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="special-menu text-center">
+                    <div class="button-group filter-button-group">
+                        <button class="active" data-filter="*">All</button>
+                        <button data-filter=".top-featured">Top featured</button>
+                        <button data-filter=".best-seller">Best seller</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row special-list">
+            <div class="col-lg-3 col-md-6 special-grid best-seller">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+                            <p class="new">New</p>
+                        </div>
+                        <img src="images/1916-cover.jpg" class="img-fluid" alt="Image">
+                        <div class="mask-icon">
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <h4>1916 - The War Years Book 3</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 special-grid top-featured">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+                            <p class="sale">Famous</p>
+                        </div>
+                        <img src="images/MyExperimentswithtruth.jpg" class="img-fluid" alt="Image">
+                        <div class="mask-icon">
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <h4>My Experiments With Truth</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 special-grid top-featured">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+                            <p class="new">Science</p>
+                        </div>
+                        <img src="images/solar-bones.jpg" class="img-fluid" alt="Image">
+                        <div class="mask-icon">
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <h4>Solar Bones</h4>
+                    </div>
+                </div>
+            </div>              
+            <div class="col-lg-3 col-md-6 special-grid best-seller">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <div class="type-lb">
+                            <p class="sale">Story</p>
+                        </div>
+                        <img src="images/Rich-Dad-Poor-Dad.jpg" class="img-fluid" alt="Image">
+                        <div class="mask-icon">
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <h4>Rich Dad Poor Dad</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Products  -->
+
+<% include blogs %>  
+<% include instagram-feed %>
+<% include userfooter %>

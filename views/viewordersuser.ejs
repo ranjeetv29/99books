@@ -1,0 +1,47 @@
+<% include userhead %>
+
+<div class="about-box-main">
+    <div class="container">
+        <center>
+            <h1 style="font-size: 30px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">My Orders</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Book ID</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Payer ID</th>
+                            <th scope="col">Order Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let row of olist) { %>
+                        <tr>
+                            <!-- Order ID -->
+                            <td><%= row._id %></td>    
+                            <!-- BookID -->
+                            <td><%= row.bid %></td>
+                            <!-- UserID -->
+                            <td><%= row.uid %></td>
+                            <!-- Amount -->
+                            <td><%= row.amount %></td>
+                            <!-- Quantity -->
+                            <td><%= row.qty %></td>
+                            <!-- PayerID -->
+                            <td><%= row.PayerID %></td>
+                            <!-- Order Information -->
+                            <td><%= row.info %></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+</div>
+
+<% include instagram-feed %>
+<% include userfooter %>

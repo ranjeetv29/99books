@@ -1,0 +1,55 @@
+<% include adminhead %>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Start Add categories  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Add Books Categories</h2>
+                    <form method="POST" action="/admin/addcategories" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!--cat name-->                     <input type="text" style="text-transform: capitalize;" placeholder="Enter Sub-Category Name" id="catnm" class="form-control" name="catnm" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!--image-->                         <input class="form-control" type="file" id="formFile" name="catimg" accept="image/*" required>
+                                </div>
+                            </div>
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" id="add-category" type="submit">Add Category</button>
+                                    <div id="login" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-left create-account">
+                        <strong><P>Want to add Sub-Category? <a href="/admin/addsubcategories" style="color: #d33b33;">Add Sub-Categories here</a></P></strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../images/side-images/add-categories-image.jpg" alt="add categories image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Add categories -->
+
+
+<% include adminfooter %>

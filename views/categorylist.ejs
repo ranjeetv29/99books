@@ -1,0 +1,41 @@
+<% include userhead s%>
+
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Categories</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="categories-shop">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-all text-center">
+                    <h1>All Categories</h1>
+                    <p>When it comes to selecting a great book, we don't discriminate here at 99 BOOKS.</p>
+                </div>
+            </div>
+        </div>
+        <center>
+            <div class="row">
+                <% for(let row of catlist) { %>
+                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                        <a href="/users/subcategorylist?catid=<%= row._id %>">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 shop-cat-box">
+                                <img class="img-fluid" src="../../uploads/categoryimages/<%= row.catimgnm %>" style="margin-bottom: 35px; margin-top: 0px;"/>    
+                                <a class="btn hvr-hover" href="#"><%= row.catnm %></a>        
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+        </center>
+    </div>  
+</div>
+
+<% include instagram-feed %>
+<% include userfooter %>

@@ -1,0 +1,100 @@
+<% include userhead%>
+<script>
+    function getresponse(state) {
+        var xhttp = new XMLHttpRequest()
+        xhttp.open("GET","/users/fetchStateAJAX?state="+state,true)
+        xhttp.send()
+
+        xhttp.onreadystatechange=function() {
+            if(xhttp.readyState==4 && xhttp.status==200) {
+                document.getElementById("response").innerHTML=xhttp.responseText
+            }
+        }
+    }
+</script>
+
+
+<!-- Start Edit profile  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../../images/side-images/user-male-change-password-image.jpg" alt="change password profile image">
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Edit Address</h2>
+                    <form method="POST" action="/users/my-account/address">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-user form-icon"></i>
+<!--Name-->                         <input type="text" style="text-transform: capitalize;" class="form-control" name="name" value="<%= addressDetails.name %>" required readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-envelope form-icon"></i>
+<!--Email-->                        <input type="email" class="form-control" name="email" value="<%= addressDetails.email %>" required readonly>
+                                </div>
+                            </div>
+<!-- state/city dropdown -->
+                            <div class="col-md-6">
+                                <label for="state" style="padding-left: 10px; padding-bottom: 0px; margin-bottom: 0px;">Select State</label>
+                                <div class="form-group">
+                                    <i class="fas fa-map-marked-alt form-icon"></i>
+                                    <select name="state" onchange="getresponse(this.value)" class="form-control" required>
+                                        <option><%= addressDetails.state %></option>
+                                        <% for(let row of statelist) { %>
+                                            <option value="<%= row.statenm %>" style="text-transform: capitalize;"><%= row.statenm %></option>
+                                        <% } %>    
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="city" style="padding-left: 10px; padding-bottom: 0px; margin-bottom: 0px;">Select City</label>
+                                <div class="form-group">
+                                    <select name="city" id="response" class="form-control" required>
+                                        <option><%= addressDetails.city %></option> 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="fas fa-map-marker-alt form-icon"></i>
+<!--Address-->                      <input type="text" style="text-transform: capitalize;" name="address" class="form-control" placeholder="Address" value="<%= addressDetails.address %>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                <i class="fas fa-map-pin form-icon"></i>
+<!--ZIP-->                      <input type="text" name="zip" class="form-control" placeholder="Postal Zip Code" pattern="[0-9]{6}" value="<%= addressDetails.zip %>" required>
+                                </div>
+                            </div>
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" type="submit">Save</button>
+                                    <div id="register" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <strong><%= output %></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Edit profile -->
+
+<% include instagram-feed %>
+<% include userfooter %>
+
+
+

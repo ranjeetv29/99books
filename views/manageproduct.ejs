@@ -1,0 +1,89 @@
+<% include adminhead %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+<div class="admin-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Admin panel</h1>
+                <h1>View and Manage Books</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about-box-main">
+    <div class="container">
+        <center>
+            <h1 style="font-size: 30px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">Books List</h1>
+            <div class="table-responsive">
+                <table class="table table-striped" id="myTable">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center;">ID</th>
+                            <th scope="col" style="text-align: center;">Status</th>
+                            <th scope="col">Book Title</th>
+                            <th scope="col" style="text-align: center;">CatID</th>
+                            <th scope="col" style="text-align: center;">SubCatID</th>
+                            <th scope="col" style="text-align: center;">Price</th>
+                            <th scope="col">Book Image</th>
+                            <th scope="col" style="text-align: center;">Action</th>
+                            <th scope="col" style="text-align: center;">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let row of productlist) { %>
+                        <tr>
+                            <!-- ID -->
+                            <td style="text-align: center;"><%= row._id %></td>  
+                            <!-- STATUS -->
+                            <% if(row.status=="not-available") {%>
+                                <td style="text-align: center;">
+                                    <i class="fas fa-times" style="color: #d33; font-size: 18px;"></i>
+                                </td>
+                            <% } else{ %>
+                                <td style="text-align: center;">
+                                    <i class="fas fa-check" style="color: #018508; font-size: 18px;"></i>
+                                </td>
+                            <% } %>
+                            <!-- BOOK NAME -->
+                            <td><%= row.btitle %></td>
+                            <!-- CAT ID -->
+                            <td style="text-align: center;"><%= row.catid %></td>
+                            <!-- SUB CAT ID -->
+                            <td style="text-align: center;"><%= row.subcatid %></td>
+                            <!-- BOOK PRICE -->
+                            <td style="text-align: center;"><%= row.bprice %></td>
+                            <!-- IMAGE NAME -->
+                            <td><%= row.bookimgnm %></td>
+                            <!-- ACTION (available/not-available) -->
+                            <% if(row.status=="not-available") {%>
+                                <td style="text-align: center;">
+                                    <a href="/admin/manageproductstatus?pid=<%= row._id %>&s=available" title="Book Not Available" class="fas fa-check" style="color: #018508; font-size: 18px;"></a>
+                                </td>
+                            <% } else{ %>
+                                <td style="text-align: center;">
+                                    <a href="/admin/manageproductstatus?pid=<%= row._id %>&s=not-available" title="Book Available" class="fas fa-times" style="color: #d33; font-size: 18px;"></a>
+                                </td>
+                            <% } %>
+                            <!-- DELETE -->
+                            <td style="text-align: center;">
+                                <a href="/admin/manageproductstatus?pid=<%= row._id %>&s=delete" title="Delete User" class="fas fa-trash" style="color: #d33; font-size: 18px;"></a>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('#myTable').dataTable();
+    });
+</script>
+<% include adminfooter %>

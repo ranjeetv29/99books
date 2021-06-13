@@ -1,0 +1,60 @@
+<% include adminhead %>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="admin-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Admin panel</h1>
+                <h1>My Account</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="my-account-box-main">
+    <div class="container">
+        <div class="my-account-page">
+            <div class="row">
+
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="account-box">
+                        <div class="service-box">
+                            <div class="service-icon">
+<!--change password-->          <a href="/admin/adminprofile/cpadmin"><i class="fas fa-unlock-alt"></i> </a>
+                            </div>
+                            <div class="service-desc">
+                                <h4>Login &amp; security</h4>
+                                <p>Edit password</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="account-box">
+                        <div class="service-box">
+                            <div class="service-icon">
+<!--edit profile-->             <a href="/admin/adminprofile/epadmin"> <i class="fas fa-user"></i> </a>
+                            </div>
+                            <div class="service-desc">
+                                <h4>Profile</h4>
+                                <p>View and update your profile.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-1"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include adminfooter %>

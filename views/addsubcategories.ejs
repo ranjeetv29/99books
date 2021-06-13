@@ -1,0 +1,63 @@
+<% include adminhead %>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Start Add categories  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Add Sub Categories</h2>
+                    <form method="POST" action="/admin/addsubcategories" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                                <div class="form-group">
+<!--select cat name-->              <select name="catid" class="form-control">
+                                        <option>Select Category</option>
+                                        <% for(row of catlist) { %>
+                                            <option value="<%= row._id%>" style="text-transform: capitalize;"><%= row.catnm %></option>
+                                        <% } %>  
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!--sUB cat name-->                 <input type="text" style="text-transform: capitalize;" placeholder="Enter Category Name" id="subcatnm" class="form-control" name="subcatnm" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!--image-->                         <input class="form-control" type="file" id="formFile" name="catimg" accept="image/*" required>
+                                </div>
+                            </div>
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" id="add-category" type="submit">Add Sub Category</button>
+                                    <div id="login" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-left create-account">
+                        <strong><P>Not Found Category? <a href="/admin/addcategories" style="color: #d33b33;">Add Categories here</a></P></strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../images/side-images/add-categories-image.jpg" alt="add sub categories image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Add categories -->
+
+
+<% include adminfooter %>

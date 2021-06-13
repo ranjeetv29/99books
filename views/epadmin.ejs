@@ -1,0 +1,63 @@
+<% include adminhead %>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Start Edit profile  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../../images/side-images/admin-edit-profile-image.jpg" alt="admin edit profile image">
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Edit Profile</h2>
+                    <form method="POST" action="/admin/adminprofile/epadmin">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-user form-icon"></i>
+<!--Name-->                         <input type="text" style="text-transform: capitalize;" class="form-control" id="name" name="name" value="<%= userDetails.name %>" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-envelope form-icon"></i>
+<!--Email-->                        <input type="email" value="<%= userDetails.email %>" id="email" class="form-control" name="email" required readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="fas fa-mobile-alt form-icon"></i>
+<!--Mobile-->                       <input type="tel" class="form-control" id="mobile" name="mobile" value="<%= userDetails.mobile %>" pattern="[6789][0-9]{9}" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-calendar-alt form-icon"></i>
+<!--DOB-->                          <input type="date" class="form-control" id="dob" name="dob" value="<%= userDetails.dob %>" required>
+                                </div>
+                            </div>
+                            
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" type="submit">Update Profile</button>
+                                    <div id="register" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Edit profile -->
+
+<% include adminfooter %>

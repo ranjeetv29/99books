@@ -1,0 +1,121 @@
+<% include head %>
+<% include top %>
+<% include main-top %>
+
+<script>
+    // function emailCheck(email) {
+    //     var xhttp = new XMLHttpRequest()
+    //     xhttp.open("GET","/emailavailablitycheckAJAX?email="+email,true)
+    //     xhttp.send()
+    //     for(let row of registerlist){
+    //         if(row.email == email){
+    //             console.log("--------------------------------------------if")
+    //         }
+    //         else{
+    //             console.log("else------------------------------------------")
+    //         }
+    //     }
+
+        // xhttp.onreadystatechange=function() {
+        //     if(xhttp.readyState==4 && xhttp.status==200) {
+        //         document.getElementById("checkemail").innerHTML = xhttp.responseText
+        //     }
+        // }
+    // }   
+</script>
+
+<!-- Start register  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="images/side-images/register-image.jpg" alt="register image">
+                </div>
+                <div class="text-center already-account">
+                    <strong><P>Already have an account? <a href="/login" style="color: #d33b33;">Login here</a></P></strong>
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Register or Create an Account</h2>
+                    <form method="POST" action="/register">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-user form-icon"></i>
+<!--Name-->                         <input type="text" style="text-transform: capitalize;" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-envelope form-icon"></i>
+
+
+<!--Email-->                        <input type="email" oninput="emailCheck('emailcheck',this)" placeholder="Your Email" id="emailcheck" class="form-control" name="email" required>
+                                    <!--oninput="emailCheck(this.value)" <label id="checkemail" style="color: #d33;"></label> -->
+
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="fas fa-phone form-icon"></i>
+<!--Mobile-->                       <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" pattern="[6789][0-9]{9}" required>
+                                    <!-- <div class="help-block with-errors"></div> -->
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="far fa-calendar-alt form-icon"></i>
+<!--DOB-->                          <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
+                                    <!-- <div class="help-block with-errors"></div> -->
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <i class="fa fa-unlock-alt form-icon"></i>
+<!--Password-->                     <input type="password" class="form-control" id="passwd" name="password" placeholder="Enter Your Password" style="float: left;" pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}" required>
+                                    <i class="far fa-eye showPwd" onclick="showPwd('passwd',this)"></i>
+                                    <label for="password" style="color: #d33b33;">!!!You must required at least one <strong>Alphabet</strong>, one <strong>Number</strong> and have at least <strong>8 Characters</strong>!!!</label>
+                                </div>
+                            </div>
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" id="emailcheck" type="submit">Register</button>
+                                    <div id="register" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End register -->
+
+<script>
+    function showPwd(id, el) {
+      let x = document.getElementById(id);
+      if (x.type === "password") {
+        x.type = "text";
+        el.className = "far fa-eye-slash showPwd"
+      } else {
+        x.type = "password";
+        el.className = "far fa-eye showPwd"
+      }
+    }
+
+</script>
+
+
+<% include instagram-feed %>
+<% include footer %>
+<% include copyright %>
+        

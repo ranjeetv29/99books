@@ -1,0 +1,99 @@
+<% include userhead %>
+<script>
+
+    function getresponse(catid) {
+        var xhttp = new XMLHttpRequest()
+        xhttp.open("GET","/users/fetchSubcategoryAJAX?catid="+catid,true)
+        xhttp.send()
+        
+        xhttp.onreadystatechange=function() {
+            if(xhttp.readyState==4 && xhttp.status==200) {
+                document.getElementById("response").innerHTML = xhttp.responseText
+            }
+        }
+    }
+
+</script>
+
+
+<!-- Start Add categories  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Add Books</h2>
+                    <form method="POST" action="/users/sell" enctype="multipart/form-data">
+                        <input type="hidden" name="uid" value="<%= username %>" required>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!--product name-->                 <input type="text" style="text-transform: capitalize;" placeholder="Enter Book Title" class="form-control" name="userbtitle" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">    
+                                <div class="form-group">
+<!--select cat name-->              <select onchange="getresponse(this.value)" name="catid" class="form-control" required>
+                                        <option>Select Category</option>  
+                                        <% for(let row of catlist) { %>
+                                            <option value="<%= row._id %>"><%= row.catnm %></option>
+                                        <% } %>   
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">    
+                                <div class="form-group">
+<!--select sub cat name-->          <select id="response" name="subcatid" class="form-control" required>
+                                        <option>Select Sub Category</option> 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+<!-- product description -->        <textarea rows="3" style="text-transform: capitalize;" cols="auto" class="form-control" name="userbdiscription" placeholder="Enter book description" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+<!--price-->                        <input type="number" name="userbprice" class="form-control" placeholder="Enter product price" required>    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+<!--image-->                         <input class="form-control" type="file" id="formFile" name="bookimg" accept="image/*" required>
+                                </div>
+                            </div>
+                            <div class="submit-button text-center col-md-12">
+                                <div class="form-group">
+                                    <button class="btn hvr-hover" id="add-category" type="submit">Sell Book</button>
+                                    <div id="login" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>    
+                            </div>
+                            <div>
+                                <strong><%= output %></strong>
+                                <br>
+                                <p>View your Books here.<a href="/users/viewselluser" style="color: red;">View Books</a></p>
+                                
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-left create-account">
+                        <p style="text-align: justify;"><strong style="color: red;">Important:</strong>Please send an Email with Book <strong style="text-decoration: underline; text-decoration-color: red;">Name</strong>, Book <strong style="text-decoration: underline; text-decoration-color: red;">Price</strong>, Book <strong style="text-decoration: underline; text-decoration-color: red;">Description</strong>, Book <strong style="text-decoration: underline; text-decoration-color: red;">Category</strong>, Book <strong style="text-decoration: underline; text-decoration-color: red;">Subcategory</strong> and Book <strong style="text-decoration: underline; text-decoration-color: red;">Image</strong>. If we find all details valid then We will show your book  for selling. Please Email Us on:- <a target="_blank" href="mailto:99books.ob@gmail.com" style="color: red; font-weight: 900;">99books.ob@gmail.com</a></P>
+                        <p>For more detail please <a href="/users/usercontact" style="color: red;">Contact us</a> or <a target="_blank" href="mailto:99books.ob@gmail.com" style="color: red;">Email us</a> with your mobile number</p>    
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-12">
+                <div class="register-info-left">
+                    <img src="../images/side-images/admin-edit-profile-image.jpg" alt="add sub categories image">
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<% include instagram-feed %>
+<% include userfooter %>
