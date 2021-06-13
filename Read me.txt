@@ -100,3 +100,10 @@ NOTE: Do not close command prompt until you work on 99boooks.
       In command-prompt, type: ctrl + C to close the server then close command-prompt  
 
 //--------------------------------------------------------------------------------------------//
+
+GIT 
+
+git add .
+git commit -m "v1.0.0"
+git push -u origin master
+git push heroku master
