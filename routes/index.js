@@ -66,7 +66,8 @@ router.get('/register', function(req, res, next) {
 router.post('/register', function(req, res, next) {
     // console.log(req.body)
     indexmodel.registerUser(req.body).then((result)=>{
-        res.render('register',{"output":"Registration Successful..."});
+        // res.render('register',{"output":"Registration Successful..."});
+        res.redirect('https://books99ob.herokuapp.com/login')
     }).catch((err)=>{
         res.render('register',{"output":"Already have an account with these email. Try to login..."});
         console.log(err)

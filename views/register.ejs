@@ -2,28 +2,6 @@
 <% include top %>
 <% include main-top %>
 
-<script>
-    // function emailCheck(email) {
-    //     var xhttp = new XMLHttpRequest()
-    //     xhttp.open("GET","/emailavailablitycheckAJAX?email="+email,true)
-    //     xhttp.send()
-    //     for(let row of registerlist){
-    //         if(row.email == email){
-    //             console.log("--------------------------------------------if")
-    //         }
-    //         else{
-    //             console.log("else------------------------------------------")
-    //         }
-    //     }
-
-        // xhttp.onreadystatechange=function() {
-        //     if(xhttp.readyState==4 && xhttp.status==200) {
-        //         document.getElementById("checkemail").innerHTML = xhttp.responseText
-        //     }
-        // }
-    // }   
-</script>
-
 <!-- Start register  -->
 <div class="contact-box-main">
     <div class="container">
@@ -50,13 +28,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <i class="far fa-envelope form-icon"></i>
-
-
-<!--Email-->                        <input type="email" oninput="emailCheck('emailcheck',this)" placeholder="Your Email" id="emailcheck" class="form-control" name="email" required>
-                                    <!--oninput="emailCheck(this.value)" <label id="checkemail" style="color: #d33;"></label> -->
-
-
-
+<!--Email-->                        <input type="email" placeholder="Your Email" id="emailcheck" class="form-control" name="email" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -69,7 +41,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <i class="far fa-calendar-alt form-icon"></i>
-<!--DOB-->                          <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
+<!--DOB-->                          <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth" required>
                                     <!-- <div class="help-block with-errors"></div> -->
                                 </div>
                             </div>
@@ -83,7 +55,7 @@
                             </div>
                             <div class="submit-button text-center col-md-12">
                                 <div class="form-group">
-                                    <button class="btn hvr-hover" id="emailcheck" type="submit">Register</button>
+                                    <button class="btn hvr-hover" type="submit">Register</button>
                                     <div id="register" class="h3 text-center hidden"></div>
                                     <div class="clearfix"></div>
                                 </div>    

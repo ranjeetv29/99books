@@ -117,12 +117,10 @@
                                 <div class="list-view-box">
                                     <div class="row">
                                         <% for(let row of blist) { %>
+                                            <% if(row.status=="available") { %>
                                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                                 <div class="products-single fix">
                                                     <div class="box-img-hover">
-                                                        <div class="type-lb">
-                                                            <p class="new">New</p>
-                                                        </div>
                                                         <img src="../../uploads/productimages/<%= row.bookimgnm %>" class="img-fluid" alt="Image">
                                                     </div>
                                                 </div>
@@ -131,7 +129,7 @@
                                                 <div class="why-text full-width">
                                                     <h4><%= row.btitle %></h4>
 <!-- rs - &#8377;  -->                              <h5>&#8377; <%= row.bprice %></h5>      
-                                                    <p><%= row.bdiscription %></p>
+                                                    <p style="text-align: justify;"><%= row.bdiscription %></p>
                                                     <form method="GET" action="/users/myorder">
                                                         <input type="hidden" name="bid" value="<%= row._id %>">
                                                         <input type="hidden" name="title" value="<%= row.btitle %>">
@@ -142,7 +140,34 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        <% } %>
+                                        <% }} for(let row of userblist) { %>
+                                            <% if(row.status==1) { %>
+                                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                                <div class="products-single fix">
+                                                    <div class="box-img-hover">
+                                                        <div class="type-lb">
+                                                            <p class="sale">User's Book</p>
+                                                        </div>
+                                                        <img src="../../uploads/productimages/<%= row.bookimgnm %>" class="img-fluid" alt="Image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
+                                                <div class="why-text full-width">
+                                                    <h4><%= row.btitle %></h4>
+<!-- rs - &#8377;  -->                              <h5>&#8377; <%= row.bprice %></h5>      
+                                                    <p style="text-align: justify;"><%= row.bdiscription %></p>
+                                                    <form method="GET" action="/users/myorder">
+                                                        <input type="hidden" name="bid" value="<%= row._id %>">
+                                                        <input type="hidden" name="title" value="<%= row.btitle %>">
+                                                        <input type="hidden" name="discription" value="<%= row.bdiscription %>">
+                                                        <input type="hidden" name="price" value="<%= row.bprice %>">
+                                                        <input type="hidden" name="bookimgnm" value="<%= row.bookimgnm %>">
+                                                        <button class="btn hvr-hover" type="submit" style="color: white; float: right; margin-top: -30px; font-weight: 900;">Buy Now</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        <% }} %>
                                     </div>
                                 </div>
                             </div>

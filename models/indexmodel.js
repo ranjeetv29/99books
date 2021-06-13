@@ -21,7 +21,7 @@ function indexmodel(){
                         }
                     }
                     userDetails._id = _id+1
-                    userDetails.status = 0
+                    userDetails.status = 1
                     userDetails.role = "user"
                     userDetails.info = Date()
                     db.collection("register").insertOne(userDetails,(err,result)=>{
