@@ -302,6 +302,11 @@ router.get('/success', function(req, res, next) {
   res.render('success',{"sunm":req.session.sunm})
 });
 
+/* GET Cancel page */
+router.get('/cancel', function(req, res, next) {
+  res.render('cancel',{"sunm":req.session.sunm})
+});
+
 /* GET Thnakyou page */
 router.get('/userthankyou', function(req, res, next) {
   res.render('userthankyou',{"sunm":req.session.sunm})
