@@ -291,7 +291,7 @@ router.post('/makepayment', function(req, res, next) {
 router.get('/paymentdetails', function(req, res, next) {
   var paymentDetails = url.parse(req.url, true).query
   usermodel.addOrder(paymentDetails).then((result)=>{
-    res.redirect('/users/success')
+    res.redirect('https://books99ob.herokuapp.com/users/success')
   }).catch((err)=>{
     console.log(err)
   })
