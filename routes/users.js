@@ -288,7 +288,7 @@ router.post('/makepayment', function(req, res, next) {
 });
 
 /* GET payment sussess page. */
-router.get('/paymentdetails', function(req, res, next) {
+router.get('https://books99ob.herokuapp.com/paymentdetails', function(req, res, next) {
   var paymentDetails = url.parse(req.url, true).query
   usermodel.addOrder(paymentDetails).then((result)=>{
     res.redirect('https://books99ob.herokuapp.com/users/success')
