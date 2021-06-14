@@ -1,6 +1,31 @@
 <% include userhead %>
 
+<script>
+    var counter = 10;
+
+    // The countdown method.
+    window.setInterval(function () {
+        counter--;
+        if (counter >= 0) {
+            var span;
+            span = document.getElementById("cnt");
+            span.innerHTML = counter;
+        }
+        if (counter === 0) {
+            clearInterval(counter);
+        }
+    }, 1000);
+
+    window.setInterval('refresh()', 10000);
+
+    // Refresh or reload page.
+    function refresh() {
+        window  .location.reload();
+    }
+</script>
+
 <!-- Start Cart  -->
+<div style="margin-left: 20px;">This page will reload in every <span id="cnt" style="color:red;">10</span> Seconds</div>
 <div class="cart-box-main">
     <div class="container">
         <div class="row">
@@ -30,7 +55,7 @@
                         </div>
                         
                         <p style="text-transform: capitalize; padding-left: 10px;">want to change billing address? <a href="/users/my-account/address" style="color: #d33b33; font-size: 16px; font-weight: 900;">Change Address here.</a></p>
-                        
+                        <!-- <div>This page will reload in <span id="cnt" style="color:red;">10</span> Seconds</div> -->
                     
                     <form>
 <!-- check box -->
