@@ -1,31 +1,48 @@
 <% include userhead %>
 
 <script>
-    var counter = 10;
+    // var counter = 10;
 
-    // The countdown method.
-    window.setInterval(function () {
-        counter--;
-        if (counter >= 0) {
-            var span;
-            span = document.getElementById("cnt");
-            span.innerHTML = counter;
-        }
-        if (counter === 0) {
-            clearInterval(counter);
-        }
-    }, 1000);
+    // // The countdown method.
+    // window.setInterval(function () {
+    //     counter--;
+    //     if (counter >= 0) {
+    //         var span;
+    //         span = document.getElementById("cnt");
+    //         span.innerHTML = counter;
+    //     }
+    //     if (counter === 0) {
+    //         clearInterval(counter);
+    //     }
+    // }, 1000);
 
-    window.setInterval('refresh()', 10000);
+    // window.setInterval('refresh()', 10000);
 
-    // Refresh or reload page.
-    function refresh() {
-        window  .location.reload();
-    }
+    // // Refresh or reload page.
+    // function refresh() {
+    //     window  .location.reload();
+    // }
+
+//     window.onload = function() {
+// 	if(!window.location.hash) {
+// 		window.location = window.location + '#loaded';
+// 		window.location.reload();
+// 	}
+// }
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
 </script>
 
 <!-- Start Cart  -->
-<div style="margin-left: 20px;">This page will reload in every <span id="cnt" style="color:red;">10</span> Seconds</div>
+<!-- <div style="margin-left: 20px;">This page will reload in every <span id="cnt" style="color:red;">10</span> Seconds</div> -->
 <div class="cart-box-main">
     <div class="container">
         <div class="row">
@@ -186,6 +203,7 @@
                             <hr> </div>
                     </div>
                     
+                    <!-- <span id="loaded" style="color:red;">10</span> -->
 
 
                     <form action="<%= PAYPAL_URL %>" method="POST">

@@ -1,4 +1,27 @@
 <% include adminhead %>
+<script>
+    var counter = 10;
+
+    // The countdown method.
+    window.setInterval(function () {
+        counter--;
+        if (counter >= 0) {
+            var span;
+            span = document.getElementById("cnt");
+            span.innerHTML = counter;
+        }
+        if (counter === 0) {
+            clearInterval(counter);
+        }
+    }, 1000);
+
+    window.setInterval('refresh()', 10000);
+
+    // Refresh or reload page.
+    function refresh() {
+        window  .location.reload();
+    }
+</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
 <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
@@ -16,6 +39,7 @@
 </div>
 <div class="about-box-main">
     <div class="container">
+        <div style="margin-left: 20px;">This page will reload in every <span id="cnt" style="color:red;">10</span> Seconds</div>
         <center>
             <h1 style="font-size: 30px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">Users List</h1>
             <div class="table-responsive">
