@@ -133,4 +133,9 @@ router.get('/thankyou', function(req, res, next) {
     res.render('thankyou')
   });
 
+/* GET Project report */
+router.get('/report', function(req, res, next) {
+    res.render('report')
+  });
+
 module.exports = router;
